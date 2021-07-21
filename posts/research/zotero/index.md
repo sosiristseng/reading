@@ -38,16 +38,19 @@ choco install zotero
 
 [Storage space is limited](https://www.zotero.org/storage) (300MB) for the free plan.
 
-If you want to attach more pdf files or dataset you could set up a synced folder in the cloud storage.[^1] The steps are listed below.
+If you want to attach more pdf files or dataset you could set up a custom folder using [ZotFile](http://zotfile.com/) attachment manager.[^1] Often this folder will sync with the cloud storage.
 
-[ZotFile](http://zotfile.com/) is an attachment manager for Zotero.
+The steps are:
 
 - Download the `.xpi` file for ZotFile and install it via the Zotero interface. Restart Zotero.
-- In the ZotFile settings, set Location of Files to “Custom Location” and point it to the folder you created in your cloud syncing
-- Disable syncing attachment files the library in Zotero preference -> Sync -> Settings -> File Syncing
+- In the zotero main program preference
+  - Sync -> settings -> untick `Sync attachments in my library`
+  - Advanced -> Set `Linked attachment base directory` to your library folder.
+- In the ZotFile settings
+  - Set Location of Files to `Custom Location` and point it to your library folder.
+  - (Optionally) Set `Source folder` to your download folder.
 
 [^1]: <https://www.nrel.colostate.edu/set-up-best-reference-manager>
-
 
 ## Other plugins
 
