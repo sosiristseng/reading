@@ -1,19 +1,130 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge"><title>Plots.jl Tips - Something to Live</title><meta name=Description content="Tech Notes of Wen-Wei Tseng"><meta property="og:title" content="Plots.jl Tips"><meta property="og:description" content="Some tips about Plots.jl, the de-facto standard visulization library in Julia."><meta property="og:type" content="article"><meta property="og:url" content="https://sosiristseng.github.io/posts/julia/plots-tips/"><meta property="og:image" content="https://sosiristseng.github.io/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-06-19T13:05:21+08:00"><meta property="article:modified_time" content="2021-06-19T13:09:04+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://sosiristseng.github.io/"><meta name=twitter:title content="Plots.jl Tips"><meta name=twitter:description content="Some tips about Plots.jl, the de-facto standard visulization library in Julia."><meta name=application-name content="Los los los"><meta name=apple-mobile-web-app-title content="Los los los"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=parrot.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://sosiristseng.github.io/posts/julia/plots-tips/><link rel=prev href=https://sosiristseng.github.io/posts/julia/parallel/><link rel=next href=https://sosiristseng.github.io/posts/julia/pyplot-tips/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Plots.jl Tips","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/sosiristseng.github.io\/posts\/julia\/plots-tips\/"},"genre":"posts","keywords":"julia, visualization","wordcount":228,"url":"https:\/\/sosiristseng.github.io\/posts\/julia\/plots-tips\/","datePublished":"2021-06-19T13:05:21+08:00","dateModified":"2021-06-19T13:09:04+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"xxxx"},"author":{"@type":"Person","name":"Wen-Wei Tseng"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Something to Live"><span class=header-title-pre><i class="fas fa-kiwi-bird fa-fw"></i></span>Something to Live</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/ title=Posts>Posts </a><a class=menu-item href=/reading/ title=Reading>Reading </a><a class=menu-item href=/tags/ title=Tags>Tags </a><a class=menu-item href=/categories/ title=Categories>Categories </a><a class=menu-item href=/about/ title="About Me">About </a><a class=menu-item href=https://github.com/sosiristseng/ title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github-alt fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop><input type=text placeholder=Search id=search-input-desktop>
-<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw"></i></a>
-<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw"></i></a>
-<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span>
-</span><a href=# onclick=return!1 class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Something to Live"><span class=header-title-pre><i class="fas fa-kiwi-bird fa-fw"></i></span>Something to Live</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=Search id=search-input-mobile>
-<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw"></i></a>
-<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw"></i></a>
-<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/posts/ title=Posts>Posts</a><a class=menu-item href=/reading/ title=Reading>Reading</a><a class=menu-item href=/tags/ title=Tags>Tags</a><a class=menu-item href=/categories/ title=Categories>Categories</a><a class=menu-item href=/about/ title="About Me">About</a><a class=menu-item href=https://github.com/sosiristseng/ title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github-alt fa-fw"></i></a><a href=# onclick=return!1 class="menu-item theme-switch" title="Switch Theme">
-<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><script>document.body.setAttribute("pageStyle","wide")</script><script>document.body.setAttribute("autoTOC","true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Plots.jl Tips</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://sosiristseng.github.io/ title=Author target=_blank rel="noopener noreffer author" class=author><i class="author fas fa-user-circle fa-fw"></i>Wen-Wei Tseng</a>
-</span>&nbsp;<span class=post-category>included in </span>&nbsp;<span class=post-category>category <a href=/categories/julia/><i class="far fa-folder fa-fw"></i>Julia</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-19>2021-06-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;228 words&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>Contents</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#you-dont-have-to-generate-data-points>You don&rsquo;t have to generate data points</a></li><li><a href=#subplots>Subplots</a></li><li><a href=#supported-styles>Supported styles</a></li><li><a href=#plotting-images>Plotting Images</a></li></ul></nav></div></div><div class=content id=content><p>Some tips about <a href=http://juliaplots.org target=_blank rel="noopener noreffer">Plots.jl</a>, the de-facto standard visulization library in Julia.</p><h2 id=you-dont-have-to-generate-data-points>You don&rsquo;t have to generate data points</h2><p><code>Plots.jl</code> suppots plotting functions.</p><ul><li><code>plot(f, tmin, tmax)</code> or <code>plot(f, tArray)</code></li><li><code>plot(fx, fy, tmin, tmax)</code> or <code>plot(fx, fy, tArray)</code></li></ul><p>For example, you can easily draw a <a href=http://docs.juliaplots.org/latest/generated/gr/#gr-ref3 target=_blank rel="noopener noreffer">parametric plot</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title class=pjax-title>Plots.jl Tips - Something to Live</title><meta name=Description content="Tech Notes of Wen-Wei Tseng"><meta property="og:title" content="Plots.jl Tips">
+<meta property="og:description" content="Some tips about Plots.jl, the de-facto standard visulization library in Julia.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sosiristseng.github.io/posts/julia/plots-tips/"><meta property="og:image" content="https://sosiristseng.github.io/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-06-19T13:05:21+08:00">
+<meta property="article:modified_time" content="2021-06-19T13:09:04+08:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://sosiristseng.github.io/">
+<meta name=twitter:title content="Plots.jl Tips">
+<meta name=twitter:description content="Some tips about Plots.jl, the de-facto standard visulization library in Julia.">
+<meta name=application-name content="Los los los">
+<meta name=apple-mobile-web-app-title content="Los los los">
+<meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=parrot.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://sosiristseng.github.io/posts/julia/plots-tips/><link rel=prev href=https://sosiristseng.github.io/posts/julia/parallel/><link rel=next href=https://sosiristseng.github.io/posts/julia/pyplot-tips/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css>
+<noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css>
+<noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Plots.jl Tips","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/sosiristseng.github.io\/posts\/julia\/plots-tips\/"},"genre":"posts","keywords":"julia, visualization","wordcount":228,"url":"https:\/\/sosiristseng.github.io\/posts\/julia\/plots-tips\/","datePublished":"2021-06-19T13:05:21+08:00","dateModified":"2021-06-19T13:09:04+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"xxxx"},"author":{"@type":"Person","name":"Wen-Wei Tseng"},"description":""}</script></head>
+<body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
+<div id=back-to-top></div>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Something to Live"><span class=header-title-pre><i class="fas fa-kiwi-bird fa-fw"></i></span>Something to Live</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/ title=Posts> Posts </a><a class=menu-item href=/reading/ title=Reading> Reading </a><a class=menu-item href=/tags/ title=Tags> Tags </a><a class=menu-item href=/categories/ title=Categories> Categories </a><a class=menu-item href=/about/ title="About Me"> About </a><a class=menu-item href=https://github.com/sosiristseng/ title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github-alt fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=Search id=search-input-desktop>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=Search>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=Clear>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=# onclick=return!1 class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Something to Live"><span class=header-title-pre><i class="fas fa-kiwi-bird fa-fw"></i></span>Something to Live</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=Search id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=Search>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=Clear>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
+Cancel
+</a>
+</div><a class=menu-item href=/posts/ title=Posts>Posts</a><a class=menu-item href=/reading/ title=Reading>Reading</a><a class=menu-item href=/tags/ title=Tags>Tags</a><a class=menu-item href=/categories/ title=Categories>Categories</a><a class=menu-item href=/about/ title="About Me">About</a><a class=menu-item href=https://github.com/sosiristseng/ title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github-alt fa-fw"></i></a><a href=# onclick=return!1 class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>Contents</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Plots.jl Tips</h1><div class=post-meta>
+<div class=post-meta-line>
+<span class=post-author><a href=https://sosiristseng.github.io/ title=Author target=_blank rel="noopener noreffer author" class=author><i class="author fas fa-user-circle fa-fw"></i>Wen-Wei Tseng</a>
+</span>&nbsp;<span class=post-category>included in </span>&nbsp;<span class=post-category>category <a href=/categories/julia/><i class="far fa-folder fa-fw"></i>Julia</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-19>2021-06-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;228 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#you-dont-have-to-generate-data-points>You don&rsquo;t have to generate data points</a></li>
+<li><a href=#subplots>Subplots</a></li>
+<li><a href=#supported-styles>Supported styles</a></li>
+<li><a href=#plotting-images>Plotting Images</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p>Some tips about <a href=http://juliaplots.org target=_blank rel="noopener noreffer">Plots.jl</a>, the de-facto standard visulization library in Julia.</p>
+<h2 id=you-dont-have-to-generate-data-points>You don&rsquo;t have to generate data points</h2>
+<p><code>Plots.jl</code> suppots plotting functions.</p>
+<ul>
+<li><code>plot(f, tmin, tmax)</code> or <code>plot(f, tArray)</code></li>
+<li><code>plot(fx, fy, tmin, tmax)</code> or <code>plot(fx, fy, tArray)</code></li>
+</ul>
+<p>For example, you can easily draw a <a href=http://docs.juliaplots.org/latest/generated/gr/#gr-ref3 target=_blank rel="noopener noreffer">parametric plot</a></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-julia data-lang=julia><span class=c># plotting (x(t), y(t))</span>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-julia data-lang=julia><span class=c># plotting (x(t), y(t))</span>
 <span class=n>plot</span><span class=p>(</span><span class=n>sin</span><span class=p>,</span> <span class=p>(</span><span class=n>x</span><span class=o>-&gt;</span> <span class=n>sin</span><span class=p>(</span><span class=mi>2</span><span class=n>x</span><span class=p>)),</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>2</span><span class=nb>π</span><span class=p>,</span> <span class=n>line</span> <span class=o>=</span> <span class=mi>4</span><span class=p>,</span> <span class=n>leg</span> <span class=o>=</span> <span class=nb>false</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p>Or make a contour plot without precalculating the function values</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table>
+</div>
+</div><p>Or make a contour plot without precalculating the function values</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -27,7 +138,9 @@
 </span><span class=lnt>12
 </span><span class=lnt>13
 </span><span class=lnt>14
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-julia data-lang=julia><span class=n>x</span> <span class=o>=</span> <span class=mi>1</span><span class=o>:</span><span class=mf>0.5</span><span class=o>:</span><span class=mi>20</span>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-julia data-lang=julia><span class=n>x</span> <span class=o>=</span> <span class=mi>1</span><span class=o>:</span><span class=mf>0.5</span><span class=o>:</span><span class=mi>20</span>
 <span class=n>y</span> <span class=o>=</span> <span class=mi>1</span><span class=o>:</span><span class=mf>0.5</span><span class=o>:</span><span class=mi>10</span>
 
 <span class=n>g</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>)</span> <span class=o>=</span> <span class=p>(</span><span class=mi>3</span><span class=n>x</span> <span class=o>+</span> <span class=n>y</span> <span class=o>^</span> <span class=mi>2</span><span class=p>)</span> <span class=o>*</span> <span class=n>abs</span><span class=p>(</span><span class=n>sin</span><span class=p>(</span><span class=n>x</span><span class=p>)</span> <span class=o>+</span> <span class=n>cos</span><span class=p>(</span><span class=n>y</span><span class=p>))</span>
@@ -41,31 +154,94 @@
 <span class=c># Generate z value on-the-fly</span>
 <span class=n>p1</span> <span class=o>=</span> <span class=n>contour</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>,</span> <span class=n>g</span><span class=p>,</span> <span class=n>fill</span><span class=o>=</span><span class=nb>true</span><span class=p>)</span>
 <span class=n>plot</span><span class=p>(</span><span class=n>p1</span><span class=p>,</span> <span class=n>p2</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><h2 id=subplots>Subplots</h2><p>You can combine multiple plots into one single plot.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=subplots>Subplots</h2>
+<p>You can combine multiple plots into one single plot.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-julia data-lang=julia><span class=n>l</span> <span class=o>=</span> <span class=nd>@layout</span> <span class=p>[</span><span class=n>a</span> <span class=p>;</span> <span class=n>b</span> <span class=n>c</span><span class=p>]</span>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-julia data-lang=julia><span class=n>l</span> <span class=o>=</span> <span class=nd>@layout</span> <span class=p>[</span><span class=n>a</span> <span class=p>;</span> <span class=n>b</span> <span class=n>c</span><span class=p>]</span>
 <span class=n>p1</span> <span class=o>=</span> <span class=n>plot</span><span class=p>(</span><span class=o>...</span><span class=p>)</span>
 <span class=n>p2</span> <span class=o>=</span> <span class=n>plot</span><span class=p>(</span><span class=o>...</span><span class=p>)</span>
 <span class=n>p3</span> <span class=o>=</span> <span class=n>plot</span><span class=p>(</span><span class=o>...</span><span class=p>)</span>
 <span class=n>plot</span><span class=p>(</span><span class=n>p1</span><span class=p>,</span> <span class=n>p2</span><span class=p>,</span> <span class=n>p3</span><span class=p>,</span> <span class=n>layout</span> <span class=o>=</span> <span class=n>l</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><p>See also <a href=http://docs.juliaplots.org/latest/layouts/#layouts target=_blank rel="noopener noreffer">layouts</a> for more options.</p><h2 id=supported-styles>Supported styles</h2><p>From <a href=https://www.math.purdue.edu/~allen450/Plotting-Tutorial.html target=_blank rel="noopener noreffer">this tutorial</a>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>See also <a href=http://docs.juliaplots.org/latest/layouts/#layouts target=_blank rel="noopener noreffer">layouts</a> for more options.</p>
+<h2 id=supported-styles>Supported styles</h2>
+<p>From <a href=https://www.math.purdue.edu/~allen450/Plotting-Tutorial.html target=_blank rel="noopener noreffer">this tutorial</a>.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-julia data-lang=julia><span class=c># tip: use Plots.supported_styles() or Plots.supported_markers() to see which linestyles or markershapes you can use</span>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-julia data-lang=julia><span class=c># tip: use Plots.supported_styles() or Plots.supported_markers() to see which linestyles or markershapes you can use</span>
 <span class=nd>@show</span> <span class=n>Plots</span><span class=o>.</span><span class=n>supported_styles</span><span class=p>();</span>
 <span class=nd>@show</span> <span class=n>Plots</span><span class=o>.</span><span class=n>supported_markers</span><span class=p>();</span>
-</code></pre></td></tr></table></div></div><h2 id=plotting-images>Plotting Images</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=plotting-images>Plotting Images</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-julia data-lang=julia><span class=c># usingPkg; Pkg.add(&#34;Images&#34;)</span>
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-julia data-lang=julia><span class=c># usingPkg; Pkg.add(&#34;Images&#34;)</span>
 <span class=k>using</span> <span class=n>Images</span>
 <span class=n>img1</span> <span class=o>=</span> <span class=n>load</span><span class=p>(</span><span class=s>&#34;dog.jpg&#34;</span><span class=p>)</span>
 <span class=n>plot</span><span class=p>(</span><span class=n>img1</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2021-06-19&nbsp;<a class=git-hash href=https://github.com/sosiristseng/sosiristseng.github.io/commit/5b056ca8417cf6f0d9a265ce39772024d2058274 target=_blank title="commit by Wen-Wei Tseng(sosiristseng@gmail.com) 5b056ca8417cf6f0d9a265ce39772024d2058274: Julia" rel="noopener noreferrer">
-<i class="fas fa-hashtag fa-fw"></i>5b056ca</a></span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/posts/julia/plots-tips/index.md target=_blank rel="noopener noreferrer">Read Markdown</a></span></div><div class=post-info-share><span><a href=# onclick=return!1 title="Share on Twitter" data-sharer=twitter data-url=https://sosiristseng.github.io/posts/julia/plots-tips/ data-title="Plots.jl Tips" data-via=sosiristseng data-hashtags=julia,visualization><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Share on Facebook" data-sharer=facebook data-url=https://sosiristseng.github.io/posts/julia/plots-tips/ data-hashtag=julia><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Share on Linkedin" data-sharer=linkedin data-url=https://sosiristseng.github.io/posts/julia/plots-tips/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Share on Hacker News" data-sharer=hackernews data-url=https://sosiristseng.github.io/posts/julia/plots-tips/ data-title="Plots.jl Tips"><i class="fab fa-hacker-news fa-fw"></i></a><a href=# onclick=return!1 title="Share on Reddit" data-sharer=reddit data-url=https://sosiristseng.github.io/posts/julia/plots-tips/><i class="fab fa-reddit fa-fw"></i></a><a href=# onclick=return!1 title="Share on Line" data-sharer=line data-url=https://sosiristseng.github.io/posts/julia/plots-tips/ data-title="Plots.jl Tips"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/line.svg></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/julia/>julia</a>,&nbsp;<a href=/tags/visualization/>visualization</a></section><section><span><a href=# onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/julia/parallel/ class=prev rel=prev title="Julia in Parallel"><i class="fas fa-angle-left fa-fw"></i>Julia in Parallel</a>
-<a href=/posts/julia/pyplot-tips/ class=next rel=next title="Pyplot.jl Tips">Pyplot.jl Tips<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.85.0">Hugo</a> | Theme - <a href=https://github.com/HEIGE-PCloud/DoIt target=_blank rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2020 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://sosiristseng.github.io/ target=_blank rel="noopener noreferrer">Wen-Wei Tseng</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw"></i>
-</a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.0/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.1/sharer.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:14},comment:{},cookieconsent:{content:{dismiss:"Got it!",link:"Learn more",message:"This website uses Cookies to improve your experience."},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"No results found",snippetLength:30,threshold:.3,type:"fuse",useExtendedSearch:!1}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>Updated on 2021-06-19&nbsp;<a class=git-hash href=https://github.com/sosiristseng/sosiristseng.github.io/commit/5b056ca8417cf6f0d9a265ce39772024d2058274 target=_blank title="commit by Wen-Wei Tseng(sosiristseng@gmail.com) 5b056ca8417cf6f0d9a265ce39772024d2058274: Julia" rel="noopener noreferrer">
+<i class="fas fa-hashtag fa-fw"></i>5b056ca</a></span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md><span>
+<a class=link-to-markdown href=/posts/julia/plots-tips/index.md target=_blank rel="noopener noreferrer">Read Markdown</a>
+</span></div>
+<div class=post-info-share>
+<span><a href=# onclick=return!1 title="Share on Twitter" data-sharer=twitter data-url=https://sosiristseng.github.io/posts/julia/plots-tips/ data-title="Plots.jl Tips" data-via=sosiristseng data-hashtags=julia,visualization><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Share on Facebook" data-sharer=facebook data-url=https://sosiristseng.github.io/posts/julia/plots-tips/ data-hashtag=julia><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Share on Linkedin" data-sharer=linkedin data-url=https://sosiristseng.github.io/posts/julia/plots-tips/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Share on Hacker News" data-sharer=hackernews data-url=https://sosiristseng.github.io/posts/julia/plots-tips/ data-title="Plots.jl Tips"><i class="fab fa-hacker-news fa-fw"></i></a><a href=# onclick=return!1 title="Share on Reddit" data-sharer=reddit data-url=https://sosiristseng.github.io/posts/julia/plots-tips/><i class="fab fa-reddit fa-fw"></i></a><a href=# onclick=return!1 title="Share on Line" data-sharer=line data-url=https://sosiristseng.github.io/posts/julia/plots-tips/ data-title="Plots.jl Tips"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/line.svg></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/julia/>julia</a>,&nbsp;<a href=/tags/visualization/>visualization</a></section>
+<section>
+<span><a href=# onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/posts/julia/parallel/ class=prev rel=prev title="Julia in Parallel"><i class="fas fa-angle-left fa-fw"></i>Julia in Parallel</a>
+<a href=/posts/julia/pyplot-tips/ class=next rel=next title="Pyplot.jl Tips">Pyplot.jl Tips<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.86.0">Hugo</a> | Theme - <a href=https://github.com/HEIGE-PCloud/DoIt target=_blank rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
+</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2020 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://sosiristseng.github.io/ target=_blank rel="noopener noreferrer">Wen-Wei Tseng</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div></footer></div>
+<div id=fixed-buttons><a href=#back-to-top id=back-to-top class=fixed-button title="Back to Top">
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><div class=assets><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.0/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/topbar@1.0.1/topbar.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/@sliphua/pjax@0.13.0/dist/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js></script></div>
+<div class=pjax-assets><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.1/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:14},comment:{},cookieconsent:{content:{dismiss:"Got it!",link:"Learn more",message:"This website uses Cookies to improve your experience."},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"No results found",snippetLength:30,threshold:.3,type:"fuse",useExtendedSearch:!1},sharerjs:!0}</script></div>
+</body>
+</html>

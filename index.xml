@@ -1,20 +1,20 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Something to Live</title><link>https://sosiristseng.github.io/</link><description>Tech Notes of Wen-Wei Tseng</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sosiristseng@gmail.com (Wen-Wei Tseng)</managingEditor><webMaster>sosiristseng@gmail.com (Wen-Wei Tseng)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 03 Jul 2021 15:55:43 +0800</lastBuildDate><atom:link href="https://sosiristseng.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Bookmarks</title><link>https://sosiristseng.github.io/posts/bookmarks/</link><pubDate>Fri, 18 Jun 2021 21:34:03 +0800</pubDate><author><name>Author</name></author><guid>https://sosiristseng.github.io/posts/bookmarks/</guid><description>&lt;p>My portable bookmarks.&lt;/p></description></item><item><title>nohup: Do not hang up in SSH sessions</title><link>https://sosiristseng.github.io/posts/linux/nohup/</link><pubDate>Sat, 03 Jul 2021 15:55:43 +0800</pubDate><author><name>Author</name></author><guid>https://sosiristseng.github.io/posts/linux/nohup/</guid><description><![CDATA[<p><code>nohup</code> can run background process(es) uninterruptedly even a remote SSH session is offline.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">nohup mycmd <span class="p">&amp;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nohup mycmd <span class="p">&amp;</span>
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Latex</title><link>https://sosiristseng.github.io/posts/research/latex/</link><pubDate>Sat, 19 Jun 2021 19:13:27 +0800</pubDate><author><name>Author</name></author><guid>https://sosiristseng.github.io/posts/research/latex/</guid><description><![CDATA[<p>LaTeX is a high-quality typesetting system for technical and scientific documentation. By <a href="https://www.latex-project.org/" target="_blank" rel="noopener noreffer">The LaTeX project</a>. See also <a href="https://github.com/egeerardyn/awesome-LaTeX" target="_blank" rel="noopener noreffer">😎 Awesome LaTeX</a>.</p>]]></description></item><item><title>Markdown</title><link>https://sosiristseng.github.io/posts/research/markdown/</link><pubDate>Sat, 19 Jun 2021 19:12:22 +0800</pubDate><author><name>Author</name></author><guid>https://sosiristseng.github.io/posts/research/markdown/</guid><description>&lt;p>Markdown is a lightweight markup language with plain-text-formatting syntax, with a variety of extensions. See also &lt;a href="https://github.com/mundimark/awesome-markdown" target="_blank" rel="noopener noreffer">😎 awesome Markdown&lt;/a>.&lt;/p></description></item><item><title>Emoji Favicon</title><link>https://sosiristseng.github.io/posts/webdev/emoji-favicon/</link><pubDate>Sat, 19 Jun 2021 15:42:31 +0800</pubDate><author><name>Author</name></author><guid>https://sosiristseng.github.io/posts/webdev/emoji-favicon/</guid><description><![CDATA[<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://w3.org/2000/svg&#34;</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 100 100&#34;</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://w3.org/2000/svg&#34;</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 100 100&#34;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">text</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;.9em&#34;</span> <span class="na">font-size</span><span class="o">=</span><span class="s">&#34;90&#34;</span><span class="p">&gt;</span>😁️<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
