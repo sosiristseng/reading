@@ -53,7 +53,7 @@ enableEmoji = true
         pre = ""
         post = ""
         name = "Reading"
-        url = "reading/"
+        url = "categories/reading/"
         title = "Reading"
         weight = 20
       [[languages.en.menu.main]]
@@ -64,6 +64,14 @@ enableEmoji = true
         url = "tags/"
         title = "Tags"
         weight = 30
+      [[languages.en.menu.main]]
+        identifier = "series"
+        pre = ""
+        post = ""
+        name = "Reading Topics"
+        url = "series/"
+        title = "Reading Topics"
+        weight = 35
       [[languages.en.menu.main]]
         identifier = "categories"
         pre = ""
@@ -600,7 +608,7 @@ enableEmoji = true
 # Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
 [Permalinks]
   # posts = ":year/:month/:filename"
-  posts = ":filename"
+  posts = ":slug"
 
 # Privacy config (https://gohugo.io/about/hugo-and-gdpr/)
 [privacy]
