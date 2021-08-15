@@ -1,0 +1,246 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<title class=pjax-title>Julia Design Patterns - Something to Live</title><meta name=Description content="Tech Notes of Wen-Wei Tseng"><meta property="og:title" content="Julia Design Patterns">
+<meta property="og:description" content="A bunch of notes of Tom kwong&rsquo;s book Hands on Design patterns in Julia.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sosiristseng.github.io/design-patterns/"><meta property="og:image" content="https://sosiristseng.github.io/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-06-19T12:39:54+08:00">
+<meta property="article:modified_time" content="2021-07-03T16:32:08+08:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://sosiristseng.github.io/">
+<meta name=twitter:title content="Julia Design Patterns">
+<meta name=twitter:description content="A bunch of notes of Tom kwong&rsquo;s book Hands on Design patterns in Julia.">
+<meta name=application-name content="Los los los">
+<meta name=apple-mobile-web-app-title content="Los los los">
+<meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=parrot.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://sosiristseng.github.io/design-patterns/><link rel=prev href=https://sosiristseng.github.io/bookmarks/><link rel=next href=https://sosiristseng.github.io/install/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Julia Design Patterns","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/sosiristseng.github.io\/design-patterns\/"},"genre":"posts","keywords":"julia","wordcount":666,"url":"https:\/\/sosiristseng.github.io\/design-patterns\/","datePublished":"2021-06-19T12:39:54+08:00","dateModified":"2021-07-03T16:32:08+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"xxxx"},"author":{"@type":"Person","name":"Wen-Wei Tseng"},"description":""}</script></head>
+<body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
+<div id=back-to-top></div>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Something to Live"><span class=header-title-pre><i class="fas fa-kiwi-bird fa-fw"></i></span>Something to Live</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/ title=Posts> Posts </a><a class=menu-item href=/reading/ title=Reading> Reading </a><a class=menu-item href=/tags/ title=Tags> Tags </a><a class=menu-item href=/categories/ title=Categories> Categories </a><a class=menu-item href=/about/ title="About Me"> About </a><a class=menu-item href=https://github.com/sosiristseng/ title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github-alt fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=Search id=search-input-desktop>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=Search>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=Clear>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=# onclick=return!1 class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Something to Live"><span class=header-title-pre><i class="fas fa-kiwi-bird fa-fw"></i></span>Something to Live</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=Search id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=Search>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=Clear>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
+Cancel
+</a>
+</div><a class=menu-item href=/posts/ title=Posts>Posts</a><a class=menu-item href=/reading/ title=Reading>Reading</a><a class=menu-item href=/tags/ title=Tags>Tags</a><a class=menu-item href=/categories/ title=Categories>Categories</a><a class=menu-item href=/about/ title="About Me">About</a><a class=menu-item href=https://github.com/sosiristseng/ title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github-alt fa-fw"></i></a><a href=# onclick=return!1 class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>Contents</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Julia Design Patterns</h1><div class=post-meta>
+<div class=post-meta-line>
+<span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://sosiristseng.github.io/ title=Author target=_blank rel="noopener noreffer author" class=author>Wen-Wei Tseng</a>
+</span>&nbsp;<span class=post-category>included in </span>&nbsp;<span class=post-category>category <a href=/categories/julia/><i class="far fa-folder fa-fw"></i>Julia</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-19>2021-06-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-07-03>2021-07-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;666 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#separated-project-environments>Separated Project environments</a></li>
+<li><a href=#packages-and-modules>Packages and modules</a></li>
+<li><a href=#functional-interfaces-and-multiple-dispatch>Functional interfaces and multiple dispatch</a></li>
+<li><a href=#delegation-pattern>Delegation pattern</a></li>
+<li><a href=#holy-traits>Holy traits</a></li>
+<li><a href=#global-constant>Global constant</a></li>
+<li><a href=#struct-of-arrays-soa>Struct of arrays (SoA)</a></li>
+<li><a href=#memoization>Memoization</a></li>
+<li><a href=#barrier-functions-for-type-stability>Barrier functions for type stability</a></li>
+<li><a href=#keyword-definition>Keyword definition</a></li>
+<li><a href=#accessor-getters-and-setters>Accessor: getters and setters</a></li>
+<li><a href=#let-blocks>Let blocks</a></li>
+<li><a href=#functional-pipes>Functional pipes</a></li>
+<li><a href=#anti-patterns-in-julia>Anti-patterns in Julia</a></li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p>A bunch of notes of Tom kwong&rsquo;s book <a href=https://www.packtpub.com/product/hands-on-design-patterns-and-best-practices-with-julia/9781838648817 target=_blank rel="noopener noreffer">Hands on Design patterns in Julia</a>.</p>
+<h2 id=separated-project-environments>Separated Project environments</h2>
+<p>It is recommended to maintain a minimal root environment (with a few necessary packages like <code>Revise.jl</code>) and <a href=https://opensourc.es/blog/all-about-pkg/#environments target=_blank rel="noopener noreffer">customize the local Julia project environment</a> by the following steps:</p>
+<ol>
+<li>Go to your project folder and run <code>julia --project=.</code>. This will run <code>pkg> activate .</code> for you.</li>
+<li>Add you packages by <code>pkg> add Pkg1 Pkg2...</code></li>
+</ol>
+<h2 id=packages-and-modules>Packages and modules</h2>
+<p>Julia also encourages making your own packages, even temporarily, to utilize unit-testing, precompilation, and to separate namespaces.</p>
+<ul>
+<li>Creating Julia packages is light-weight: <code>pkg> generate PkgName</code> only creates two files (one julia and one TOML file). For a more complete configuration, consider using <a href=https://github.com/invenia/PkgTemplates.jl target=_blank rel="noopener noreffer">PkgTemplates</a> or <a href=https://github.com/tpapp/PkgSkeleton.jl target=_blank rel="noopener noreffer">PkgSkeleton.jl</a> for more functionalities like CI testing and code coverage.</li>
+<li><a href=https://github.com/timholy/Revise.jl target=_blank rel="noopener noreffer">Revise.jl</a> watches file system changes and update the code in the loaded packages / modules automatically.</li>
+</ul>
+<h2 id=functional-interfaces-and-multiple-dispatch>Functional interfaces and multiple dispatch</h2>
+<p>In the Julia world, generic functions called <a href=https://docs.julialang.org/en/v1/manual/functions/ target=_blank rel="noopener noreffer">functions</a>, while those with type annotations / parameterizations are called <a href=https://docs.julialang.org/en/v1/manual/methods/ target=_blank rel="noopener noreffer">methods</a>. My impressions so far was that, Julia is a <em>functional interface-first</em> programming language, by the power of <a href=https://opensourc.es/blog/basics-multiple-dispatch/ target=_blank rel="noopener noreffer">multiple dispatch paradigm</a>, to make Julia a much more flexible (in programming) and composable between packages: e.g. <a href=https://github.com/SciML/DiffEqFlux.jl target=_blank rel="noopener noreffer">DiffEq + Flux + GPU kernel</a>), and mathematically natural. However, it requires a vastly different mindset for users coming from the object-oriented worlds like Python / Java.</p>
+<ul>
+<li>Abstract types cannot have fields. They are only meant to be inherited with their functional interfaces. Concrete types (structs with fields), on the other hand, cannot not be inherited.</li>
+<li>Use parameteric <a href=https://docs.julialang.org/en/v1/manual/types/#Parametric-Types target=_blank rel="noopener noreffer">type (structs)</a> and <a href=https://docs.julialang.org/en/v1/manual/methods/#Parametric-Methods target=_blank rel="noopener noreffer">methods</a> rather than directly type-annotate the fields / arguments.</li>
+<li>Traits are functions that return True/False/Error based on the input type. See <a href=https://www.juliabloggers.com/the-emergent-features-of-julialang-part-ii-traits/ target=_blank rel="noopener noreffer">holy traits</a> for more details.</li>
+</ul>
+<h2 id=delegation-pattern>Delegation pattern</h2>
+<p>This is a form of polymorphism via composition<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> to established packages to reuse their code at the cose of an additional layer of indirection.</p>
+<h2 id=holy-traits>Holy traits</h2>
+<p><a href=https://www.juliabloggers.com/the-emergent-features-of-julialang-part-ii-traits/ target=_blank rel="noopener noreffer">Holy traits</a> are named after Tim Holy.</p>
+<ul>
+<li>Traits are empty structs.</li>
+<li>Data types are assigned catagorically to traits' interfaces, implementing different behavior for different kind of data type.</li>
+<li>Traits heirarchy could be separated from the type heirarchy they modeled.</li>
+</ul>
+<p><a href=https://github.com/mauro3/SimpleTraits.jl target=_blank rel="noopener noreffer">SimpleTraits.jl</a> automates some of the boilerplate for you.</p>
+<h2 id=global-constant>Global constant</h2>
+<p>Global (module-level) variables are discouraged for performance reasons, but global constants are welcomed in Julia since the compiler can optimize global constants.</p>
+<h2 id=struct-of-arrays-soa>Struct of arrays (SoA)</h2>
+<p>Struct of arrays (SoA) are superior to array of structs (AoS) in terms of performance in SIMD and GPU.</p>
+<p><a href=https://github.com/JuliaArrays/StructArrays.jl target=_blank rel="noopener noreffer">StructArrays</a> handles the mapping of AoS (on the surface) to SoA (in the memory).</p>
+<h2 id=memoization>Memoization</h2>
+<p>Memoization saves duplicated work in repetitive or recursive calls.</p>
+<p>You can implement memoization by yourself using function wrapper, local cache, and closure. But <a href=https://github.com/JuliaCollections/Memoize.jl target=_blank rel="noopener noreffer">Memoize.jl</a> would do the hard work for you.</p>
+<h2 id=barrier-functions-for-type-stability>Barrier functions for type stability</h2>
+<p>Julia runs slower in type-unstable code. Use <code>@code_warntype</code> in front of an expression to spot type instability. (or use <code>@inferred</code> in unit tests to err on type instabilities) Use generic functions (aka barrier functions) to ensure type stability.</p>
+<p>e.g.</p>
+<ul>
+<li><code>zero(x)</code> instead of <code>0</code>.</li>
+<li><a href=https://docs.julialang.org/en/v1/manual/performance-tips/#kernel-functions target=_blank rel="noopener noreffer">Separate kernel functions</a></li>
+</ul>
+<h2 id=keyword-definition>Keyword definition</h2>
+<p>Keyword definitions use less boilerplate code for struct initialization.</p>
+<ul>
+<li><a href=https://github.com/mauro3/Parameters.jl target=_blank rel="noopener noreffer">Parameters.jl</a> package.</li>
+<li>Built-in <code>Base.@kwdef</code>.</li>
+</ul>
+<h2 id=accessor-getters-and-setters>Accessor: getters and setters</h2>
+<p>Customize <code>Base.getproperty(x, :a)</code> for getters (<code>x.a</code>) and <code>Base.setproperty!(x, :a, val)</code> for setters (<code>x.a = val</code>).</p>
+<h2 id=let-blocks>Let blocks</h2>
+<p>A <code>let</code> block defines its own local namespace. The variables defined inside a let block cannot be accessed outside.</p>
+<h2 id=functional-pipes>Functional pipes</h2>
+<p>Useful in data pipelines. Checkout <a href=https://github.com/jkrumbiegel/Chain.jl target=_blank rel="noopener noreffer">Chain.jl</a> for enhanced pipelines.</p>
+<h2 id=anti-patterns-in-julia>Anti-patterns in Julia</h2>
+<ol>
+<li><em>Type instability</em> especially in tight loops yields poor performance.</li>
+<li><em>Global variables</em> are type-unstable.</li>
+<li>Type piracy, a.k.a. redefining an existing function or twisting the behavior of a function. Do not overload methods for types you do not own.</li>
+<li>Narrow argument types means overspecialization. Write generic code first.</li>
+<li>Non-concrete field type: <code>struct A x::Real end</code> provides no benefit against <code>struct A x end</code>. Use parametric types instead alike the example below.</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-julia data-lang=julia><span class=k>struct</span> <span class=kt>A</span><span class=p>{</span><span class=kt>T</span><span class=o>&lt;:</span><span class=kt>Real</span><span class=p>}</span>
+  <span class=n>x</span><span class=o>::</span><span class=kt>T</span>
+<span class=k>end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=references>References</h2>
+<ul>
+<li><a href=https://docs.julialang.org/en/v1/ target=_blank rel="noopener noreffer">Julia docs</a></li>
+<li><a href=https://opensourc.es/ target=_blank rel="noopener noreffer">opensourc.es</a></li>
+<li><a href=https://www.packtpub.com/product/hands-on-design-patterns-and-best-practices-with-julia/9781838648817 target=_blank rel="noopener noreffer">Hands on Design patterns in Julia</a>, the book by Tom kwong.</li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=https://stackoverflow.com/questions/54789937/what-is-delegation-in-julia target=_blank rel="noopener noreffer">https://stackoverflow.com/questions/54789937/what-is-delegation-in-julia</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section></div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>Updated on 2021-07-03&nbsp;<a class=git-hash href=https://github.com/sosiristseng/sosiristseng.github.io/commit/a0822fdbb46602e37f3e7ffc2f8f442e03c1cbad target=_blank title="commit by Wen-Wei Tseng(sosiristseng@gmail.com) a0822fdbb46602e37f3e7ffc2f8f442e03c1cbad: small fix" rel="noopener noreferrer">
+<i class="fas fa-hashtag fa-fw"></i>a0822fd</a></span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md><span>
+<a class=link-to-markdown href=/design-patterns/index.md target=_blank rel="noopener noreferrer">Read Markdown</a>
+</span></div>
+<div class=post-info-share>
+<span><a href=# onclick=return!1 title="Share on Twitter" data-sharer=twitter data-url=https://sosiristseng.github.io/design-patterns/ data-title="Julia Design Patterns" data-via=sosiristseng data-hashtags=julia><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Share on Facebook" data-sharer=facebook data-url=https://sosiristseng.github.io/design-patterns/ data-hashtag=julia><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Share on Linkedin" data-sharer=linkedin data-url=https://sosiristseng.github.io/design-patterns/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Share on Hacker News" data-sharer=hackernews data-url=https://sosiristseng.github.io/design-patterns/ data-title="Julia Design Patterns"><i class="fab fa-hacker-news fa-fw"></i></a><a href=# onclick=return!1 title="Share on Reddit" data-sharer=reddit data-url=https://sosiristseng.github.io/design-patterns/><i class="fab fa-reddit fa-fw"></i></a><a href=# onclick=return!1 title="Share on Line" data-sharer=line data-url=https://sosiristseng.github.io/design-patterns/ data-title="Julia Design Patterns"><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/julia/>julia</a></section>
+<section>
+<span><a href=# onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/bookmarks/ class=prev rel=prev title="Julia Bookmarks"><i class="fas fa-angle-left fa-fw"></i>Julia Bookmarks</a>
+<a href=/install/ class=next rel=next title="Setup Julia">Setup Julia<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href=https://github.com/HEIGE-PCloud/DoIt target=_blank rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
+</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2020 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://sosiristseng.github.io/ target=_blank rel="noopener noreferrer">Wen-Wei Tseng</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div><script>'serviceWorker'in navigator&&(navigator.serviceWorker.register('/sw.min.js',{scope:'/'}).then(function(a){}),navigator.serviceWorker.ready.then(function(a){}))</script></footer></div>
+<div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title="Back to Top">
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><div class=assets><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/fuse/fuse.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js></script></div>
+<div class=pjax-assets><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:15},comment:{},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"No results found",snippetLength:30,threshold:.3,type:"fuse",useExtendedSearch:!1},sharerjs:!0}</script></div>
+</body>
+</html>

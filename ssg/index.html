@@ -1,0 +1,267 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<title class=pjax-title>Static Site Generators - Something to Live</title><meta name=Description content="Tech Notes of Wen-Wei Tseng"><meta property="og:title" content="Static Site Generators">
+<meta property="og:description" content="Static site generators (SSGs) compiles simple text files (like markdown) into websites.
+See also awesome static site generators.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sosiristseng.github.io/ssg/"><meta property="og:image" content="https://sosiristseng.github.io/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-06-19T14:02:57+08:00">
+<meta property="article:modified_time" content="2021-06-19T15:43:55+08:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://sosiristseng.github.io/">
+<meta name=twitter:title content="Static Site Generators">
+<meta name=twitter:description content="Static site generators (SSGs) compiles simple text files (like markdown) into websites.
+See also awesome static site generators.">
+<meta name=application-name content="Los los los">
+<meta name=apple-mobile-web-app-title content="Los los los">
+<meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=parrot.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://sosiristseng.github.io/ssg/><link rel=prev href=https://sosiristseng.github.io/bookmarks/><link rel=next href=https://sosiristseng.github.io/hugo-setup/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Static Site Generators","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/sosiristseng.github.io\/ssg\/"},"genre":"posts","keywords":"webdev, hugo, hexo","wordcount":535,"url":"https:\/\/sosiristseng.github.io\/ssg\/","datePublished":"2021-06-19T14:02:57+08:00","dateModified":"2021-06-19T15:43:55+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"xxxx"},"author":{"@type":"Person","name":"Wen-Wei Tseng"},"description":""}</script></head>
+<body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
+<div id=back-to-top></div>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Something to Live"><span class=header-title-pre><i class="fas fa-kiwi-bird fa-fw"></i></span>Something to Live</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/ title=Posts> Posts </a><a class=menu-item href=/reading/ title=Reading> Reading </a><a class=menu-item href=/tags/ title=Tags> Tags </a><a class=menu-item href=/categories/ title=Categories> Categories </a><a class=menu-item href=/about/ title="About Me"> About </a><a class=menu-item href=https://github.com/sosiristseng/ title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github-alt fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=Search id=search-input-desktop>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=Search>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=Clear>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=# onclick=return!1 class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Something to Live"><span class=header-title-pre><i class="fas fa-kiwi-bird fa-fw"></i></span>Something to Live</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=Search id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=Search>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=Clear>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
+Cancel
+</a>
+</div><a class=menu-item href=/posts/ title=Posts>Posts</a><a class=menu-item href=/reading/ title=Reading>Reading</a><a class=menu-item href=/tags/ title=Tags>Tags</a><a class=menu-item href=/categories/ title=Categories>Categories</a><a class=menu-item href=/about/ title="About Me">About</a><a class=menu-item href=https://github.com/sosiristseng/ title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github-alt fa-fw"></i></a><a href=# onclick=return!1 class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>Contents</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Static Site Generators</h1><div class=post-meta>
+<div class=post-meta-line>
+<span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://sosiristseng.github.io/ title=Author target=_blank rel="noopener noreffer author" class=author>Wen-Wei Tseng</a>
+</span>&nbsp;<span class=post-category>included in </span>&nbsp;<span class=post-category>category <a href=/categories/webdev/><i class="far fa-folder fa-fw"></i>WebDev</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-19>2021-06-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-06-19>2021-06-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;535 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#sort-by-programming-languages>Sort by programming languages</a>
+<ul>
+<li><a href=#r>R</a></li>
+<li><a href=#ruby>Ruby</a></li>
+<li><a href=#javascript--npm>Javascript / npm</a></li>
+<li><a href=#go>Go</a></li>
+<li><a href=#python>Python</a></li>
+<li><a href=#julia>Julia</a></li>
+</ul>
+</li>
+<li><a href=#ive-always-wanted-to-have-a-tech-blog-that-is>I&rsquo;ve always wanted to have a tech blog that is</a></li>
+<li><a href=#hugo>Hugo</a></li>
+<li><a href=#hexo>Hexo</a></li>
+<li><a href=#docsify>Docsify</a></li>
+<li><a href=#others>Others</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p>Static site generators (SSGs) compiles simple text files (like markdown) into websites.</p>
+<p>See also <a href=https://github.com/myles/awesome-static-generators target=_blank rel="noopener noreffer">awesome static site generators</a>.</p>
+<h2 id=sort-by-programming-languages>Sort by programming languages</h2>
+<h3 id=r>R</h3>
+<ul>
+<li><a href=https://bookdown.org target=_blank rel="noopener noreffer">Bookdown</a> : Write HTML, PDF, ePub, and Kindle books with R Markdown.</li>
+</ul>
+<h3 id=ruby>Ruby</h3>
+<ul>
+<li><a href=https://jekyllrb.com/ target=_blank rel="noopener noreffer">Jekyll</a> : The default SSG for GitHub pages.</li>
+</ul>
+<h3 id=javascript--npm>Javascript / npm</h3>
+<ul>
+<li><a href=https://docsify.js.org/ target=_blank rel="noopener noreffer">Docsify</a> : Rendering Markdown files on-the-fly. <a href=https://docsify.js.org/#/awesome target=_blank rel="noopener noreffer">Awesome docsify</a>.</li>
+<li><a href=https://www.gatsbyjs.com target=_blank rel="noopener noreffer">Gatsby.js</a> : A blazing fast React-based SSG. Some javascript knowledge is required.</li>
+<li><a href=https://hexo.io target=_blank rel="noopener noreffer">Hexo</a> : A fast, simple & powerful blog framework written in NodeJS. <a href=https://hexo.io/themes/ target=_blank rel="noopener noreffer">Themes</a> and <a href=https://hexo.io/plugins/ target=_blank rel="noopener noreffer">plugins</a>.</li>
+</ul>
+<h3 id=go>Go</h3>
+<ul>
+<li><a href=https://gohugo.io/ target=_blank rel="noopener noreffer">Hugo</a> : The fastest framework for building websites, written in Go. <a href=https://themes.gohugo.io/ target=_blank rel="noopener noreffer">Themes</a>.</li>
+</ul>
+<h3 id=python>Python</h3>
+<ul>
+<li><a href=https://getnikola.com/ target=_blank rel="noopener noreffer">Nikola</a> : Static Site Generator written in Python.</li>
+<li><a href=https://jupyterbook.org/intro.html target=_blank rel="noopener noreffer">Jupyterbook</a> : Building beautiful, publication-quality books and documents from jupytr notebooks.</li>
+</ul>
+<h3 id=julia>Julia</h3>
+<ul>
+<li><a href=https://github.com/tlienart/Franklin.jl target=_blank rel="noopener noreffer">Franklin.jl</a> :: Static site generation with live Julia code evaulation. <a href=https://github.com/tlienart/Franklin.jl#docs target=_blank rel="noopener noreffer">Examples</a>.</li>
+<li><a href=https://tlienart.github.io/PkgPage.jl/ target=_blank rel="noopener noreffer">PkgPage.jl</a> : Creating (package) front-pages, powered by <code>Franklin.jl</code>.</li>
+<li><a href=https://github.com/Azzaare/StaticWebPages.jl target=_blank rel="noopener noreffer">StaticWebPages.jl</a> : Create academics and personal CV web-pages.</li>
+</ul>
+<h2 id=ive-always-wanted-to-have-a-tech-blog-that-is>I&rsquo;ve always wanted to have a tech blog that is</h2>
+<ul>
+<li>looking nice 🥰</li>
+<li>fast and responsive</li>
+<li>having full-text search</li>
+<li>tracking the progress I made</li>
+<li>browser through keywords for my articles</li>
+<li>displaying math and chemical expressions</li>
+</ul>
+<h2 id=hugo>Hugo</h2>
+<p><a href=https://gohugo.io/ target=_blank rel="noopener noreffer">Hugo</a> is the world’s fastest framework for building websites, written in Go.</p>
+<p><strong>Pros 👍</strong></p>
+<ul>
+<li>Single dependency with one <code>hugo</code> excutable only.</li>
+<li>Extremely fast. It builds a large website within 5 seconds.</li>
+<li>Able to customize / override default settings without messing up the theme files.<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></li>
+</ul>
+<p><strong>Cons 👎</strong></p>
+<ul>
+<li>A limited number of extensions.</li>
+<li>GoLang knowledge is required if you want to make templates.</li>
+</ul>
+<p><strong>Themes</strong></p>
+<ul>
+<li><a href=https://github.com/sunt-programator/CodeIT target=_blank rel="noopener noreffer">codeIT</a> : used in this blog.</li>
+<li><a href=https://github.com/chipzoller/hugo-clarity target=_blank rel="noopener noreffer">clarity</a></li>
+<li><a href=https://gitlab.com/rmaguiar/hugo-theme-color-your-world target=_blank rel="noopener noreffer">color your world</a></li>
+<li><a href=https://github.com/reuixiy/hugo-theme-meme target=_blank rel="noopener noreffer">meme</a></li>
+<li><a href=https://github.com/zzossig/hugo-theme-zzo target=_blank rel="noopener noreffer">zzo</a></li>
+</ul>
+<h2 id=hexo>Hexo</h2>
+<p><strong>Pros 👍</strong></p>
+<ul>
+<li>A huge set of plugins thanks to the npm ecosystem.</li>
+<li>Plentiful Chinese resources.</li>
+<li>Relatively fast. It builds a large website under 1 minute.</li>
+</ul>
+<p><strong>Cons 👎</strong></p>
+<ul>
+<li>Hundreds of npm dependencies. If you are familiar with npm packages it might not be a problem.</li>
+<li>For LaTeX math typesetting, you need to change the renderer to either the pandoc one, which requires the <code>pandoc</code> binary or the markdown-it one, in which chemical typesetting (<code>mhchem</code>) does not work well.</li>
+<li>More complicated to override the templates in the theme.</li>
+<li>Less intuitive <a href=https://hexo.io/docs/asset-folders.html target=_blank rel="noopener noreffer">asset management</a>.</li>
+</ul>
+<p><strong>Themes</strong></p>
+<ul>
+<li><a href=https://theme-next.js.org/ target=_blank rel="noopener noreffer">Next</a></li>
+<li><a href=https://fluid-dev.github.io/hexo-fluid-docs/ target=_blank rel="noopener noreffer">fluid</a></li>
+<li><a href=https://butterfly.js.org/ target=_blank rel="noopener noreffer">butterfly</a></li>
+</ul>
+<h2 id=docsify>Docsify</h2>
+<p><a href=https://docsify.js.org/ target=_blank rel="noopener noreffer">Docsify</a> renders Markdown files to HTML on-the-fly.</p>
+<p><strong>Pros 👍</strong></p>
+<ul>
+<li>Minimal dependency: just one <code>index.html</code> with JS/CSS and you&rsquo;re good to go.</li>
+<li>Fast. It skips the building step and renders Markdown file on-the-fly.</li>
+<li>Handy extensions on <a href=https://docsify.js.org/#/awesome target=_blank rel="noopener noreffer">awesome docsify</a>.</li>
+</ul>
+<p><strong>Cons 👎</strong></p>
+<ul>
+<li>No support for tags and categories.</li>
+<li>KaTeX extension does not support <code>mhchem</code>.</li>
+</ul>
+<h2 id=others>Others</h2>
+<ul>
+<li><a href=https://jekyllrb.com/ target=_blank rel="noopener noreffer">Jekyll</a>, the default GitHub pages SSG written in Ruby. Generating a large site is slower compared to either Hugo or Hexo, taking several minutes.</li>
+<li><a href=https://getnikola.com/ target=_blank rel="noopener noreffer">Nikola</a>, a SSG written in Python with first-class support of Markdown (<code>*.md</code>), reStructuredText (<code>*.rst</code>) and Jupyter Notebook (<code>*.ipynb</code>) files.</li>
+<li><a href=https://jupyterbook.org target=_blank rel="noopener noreffer">JupyterBook</a>, powered by the <a href=https://www.sphinx-doc.org/en/master/ target=_blank rel="noopener noreffer">Sphinx</a> python documentation generator, builds beautiful, publication-quality books and documents from Markdown (<code>*.md</code>), reStructuredText (<code>*.rst</code>) and Jupyter Notebook (<code>*.ipynb</code>) files.</li>
+<li><a href=https://www.gatsbyjs.com target=_blank rel="noopener noreffer">Gatsby.js</a> is a blazing fast React-based open-source framework for creating websites and apps. Some Javascript Node.js knowledge is required to build a site.</li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>In Hugo, you are able to <a href=https://zwbetz.com/override-a-hugo-theme/ target=_blank rel="noopener noreffer">override default layouts and settings</a> by placing counterpart file(s) in your site folder. Hugo will look at your custom setting first without messing with the theme folder, which is much more friendly for Git submodules and theme updates.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section></div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>Updated on 2021-06-19&nbsp;<a class=git-hash href=https://github.com/sosiristseng/sosiristseng.github.io/commit/5d07f046b91841caa9a7a08d1b581a018529226f target=_blank title="commit by Wen-Wei Tseng(sosiristseng@gmail.com) 5d07f046b91841caa9a7a08d1b581a018529226f: webdev" rel="noopener noreferrer">
+<i class="fas fa-hashtag fa-fw"></i>5d07f04</a></span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md><span>
+<a class=link-to-markdown href=/ssg/index.md target=_blank rel="noopener noreferrer">Read Markdown</a>
+</span></div>
+<div class=post-info-share>
+<span><a href=# onclick=return!1 title="Share on Twitter" data-sharer=twitter data-url=https://sosiristseng.github.io/ssg/ data-title="Static Site Generators" data-via=sosiristseng data-hashtags=webdev,hugo,hexo><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Share on Facebook" data-sharer=facebook data-url=https://sosiristseng.github.io/ssg/ data-hashtag=webdev><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Share on Linkedin" data-sharer=linkedin data-url=https://sosiristseng.github.io/ssg/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Share on Hacker News" data-sharer=hackernews data-url=https://sosiristseng.github.io/ssg/ data-title="Static Site Generators"><i class="fab fa-hacker-news fa-fw"></i></a><a href=# onclick=return!1 title="Share on Reddit" data-sharer=reddit data-url=https://sosiristseng.github.io/ssg/><i class="fab fa-reddit fa-fw"></i></a><a href=# onclick=return!1 title="Share on Line" data-sharer=line data-url=https://sosiristseng.github.io/ssg/ data-title="Static Site Generators"><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/webdev/>webdev</a>,&nbsp;<a href=/tags/hugo/>hugo</a>,&nbsp;<a href=/tags/hexo/>hexo</a></section>
+<section>
+<span><a href=# onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/bookmarks/ class=prev rel=prev title="Web Develpment Bookmarks"><i class="fas fa-angle-left fa-fw"></i>Web Develpment Bookmarks</a>
+<a href=/hugo-setup/ class=next rel=next title="Hugo Setup">Hugo Setup<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href=https://github.com/HEIGE-PCloud/DoIt target=_blank rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
+</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2020 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://sosiristseng.github.io/ target=_blank rel="noopener noreferrer">Wen-Wei Tseng</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div><script>'serviceWorker'in navigator&&(navigator.serviceWorker.register('/sw.min.js',{scope:'/'}).then(function(a){}),navigator.serviceWorker.ready.then(function(a){}))</script></footer></div>
+<div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title="Back to Top">
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><div class=assets><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/fuse/fuse.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js></script></div>
+<div class=pjax-assets><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:15},comment:{},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"No results found",snippetLength:30,threshold:.3,type:"fuse",useExtendedSearch:!1},sharerjs:!0}</script></div>
+</body>
+</html>
