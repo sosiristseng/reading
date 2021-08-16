@@ -33,6 +33,8 @@ See also [GensJulia][], my personal Julia list largely based on [Julia.jl][].
 
 ## Pluto notebooks
 
+I [exported](https://github.com/NTUMitoLab/pluto-export-template) some Julia examples to [Pluto](https://github.com/fonsp/Pluto.jl) notebooks.
+
 - [Pluto notebooks for systems biology class](https://github.com/sosiristseng/pluto-notebooks)
 - [Plots Gallery](https://sosiristseng.github.io/plotsgallery-pluto/)
 - [PyPlot Gallery](https://sosiristseng.github.io/pyplot-pluto/)
