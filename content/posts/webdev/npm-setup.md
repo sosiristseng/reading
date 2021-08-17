@@ -7,7 +7,7 @@ author: ""
 authorLink: ""
 description: ""
 
-tags: [webdev, nodejs]
+tags: [web, nodejs]
 categories: [WebDev]
 
 hiddenFromHomePage: false

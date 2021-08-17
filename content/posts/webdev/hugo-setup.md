@@ -7,7 +7,7 @@ author: ""
 authorLink: ""
 description: ""
 
-tags: [webdev, hugo]
+tags: [web, hugo]
 categories: [WebDev]
 
 hiddenFromHomePage: false

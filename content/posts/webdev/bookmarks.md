@@ -7,7 +7,7 @@ author: ""
 authorLink: ""
 description: ""
 
-tags: [webdev, bookmark]
+tags: [web, bookmark]
 categories: [WebDev]
 
 hiddenFromHomePage: false
@@ -23,7 +23,7 @@ math:
 lightgallery: false
 ---
 
-> CSS, Icons, Illustrations, Photos
+CSS, Icons, Illustrations, Photos
 
 <!--more-->
 
@@ -77,6 +77,7 @@ Generate CSS styles for your websites. From [hashnode](https://denic.hashnode.de
 ## Photos
 
 - [Big Foto](https://bigfoto.com/)
+- [Can we image](https://canweimage.com/) search engine.
 - [CC search](https://search.creativecommons.org/): Search for content to reuse
 - [DreamsTime](https://www.dreamstime.com/)
 - [Foodiesfeed](http://foodiesfeed.com/): Food pictures
@@ -100,7 +101,7 @@ Generate CSS styles for your websites. From [hashnode](https://denic.hashnode.de
 - [Public Domain Pictures](https://www.publicdomainpictures.net/en/)
 - [Stock Vault](https://www.stockvault.net/)
 - [Unsplash](https://unsplash.com/)
-- [Wikipedia commons](https://commons.wikimedia.org/wiki/Main_Page) and [Can we image](https://canweimage.com/) search engine.
+- [Wikipedia commons](https://commons.wikimedia.org/wiki/Main_Page)
 
 ## HTML Publications
 
