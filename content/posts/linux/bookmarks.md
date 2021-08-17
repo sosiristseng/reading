@@ -38,15 +38,16 @@ lightgallery: false
 
 ## Linux Wikis and forums
 
-- [Unix stack exchange](https://unix.stackexchange.com/)
 - [Arch Wiki](https://wiki.archlinux.org/)
+- [Ask ubuntu](https://askubuntu.com/)
 - [endeavour OS forums](https://forum.endeavouros.com/)
 - [Garuda Linux forum](https://forum.garudalinux.org/)
-- [Ubuntu wiki](https://wiki.ubuntu.com/)
-- [Ask ubuntu](https://askubuntu.com/)
+- [Manjaro forum](https://forum.manjaro.org)
 - [PoP OS docs](https://pop.system76.com/docs/)
 - [PoP planet](https://pop-planet.info/)
 - [PopOS reddit](https://www.reddit.com/r/pop_os/)
+- [Ubuntu wiki](https://wiki.ubuntu.com/)
+- [Unix stack exchange](https://unix.stackexchange.com/)
 
 ## Shell scripting
 
