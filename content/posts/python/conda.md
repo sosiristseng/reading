@@ -23,7 +23,7 @@ math:
 lightgallery: false
 ---
 
-For windows: Download and install the [Anaconda distribution](https://www.anaconda.com/products/individual) for a quick setup.
+For windows: Download and install the [Anaconda distribution](https://www.anaconda.com/products/individual) for a quick setup. See also [conda official docs](https://docs.conda.io/en/latest/).
 
 <!--more-->
 
@@ -63,7 +63,3 @@ mamba update --all --yes
 [[ -f ~/.bashrc ]] && conda init bash
 [[ -f ~/.zshrc ]] && conda init zsh
 ```
-
-## See also
-
-- [Conda official docs](https://docs.conda.io/en/latest/).
