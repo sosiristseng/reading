@@ -1,5 +1,5 @@
 ---
-title: "Latex"
+title: "Latex bookmarks"
 subtitle: ""
 date: 2021-06-19T19:13:27+08:00
 draft: false
