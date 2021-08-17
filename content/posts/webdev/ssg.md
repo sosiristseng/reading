@@ -38,6 +38,11 @@ See also [awesome static site generators](https://github.com/myles/awesome-stati
 
 - [Jekyll](https://jekyllrb.com/) : The default SSG for GitHub pages.
 
+## Rust
+
+- [mdBook](https://github.com/rust-lang/mdBook) : Create book from markdown files. Like Gitbook but implemented in Rust.
+- [Zola](https://github.com/getzola/zola) : A fast static site generator in a single binary with everything built-in.
+
 ### Javascript / npm
 
 - [Docsify](https://docsify.js.org/) : Rendering Markdown files on-the-fly. [Awesome docsify](https://docsify.js.org/#/awesome).
