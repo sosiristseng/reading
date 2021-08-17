@@ -1,4 +1,4 @@
-# Latex
+# Latex bookmarks
 
 
 LaTeX is a high-quality typesetting system for technical and scientific documentation. By [The LaTeX project](https://www.latex-project.org/). See also [😎 Awesome LaTeX](https://github.com/egeerardyn/awesome-LaTeX).
@@ -30,4 +30,14 @@ LaTeX is a high-quality typesetting system for technical and scientific document
 - [☁️ Detexify](http://detexify.kirelabs.org/classify.html) :: recognition of handwriting to Latex symbols.
 - [☁️ Tables Generator](https://www.tablesgenerator.com/) :: LATEX and MD Tables.
 - [☁️ LaTeX live (在线LaTeX公式编辑器)](https://www.latexlive.com/) :: LaTeX equations to SVG using MathJax.
+
+## CICD for LaTeX documents
+
+GitHub actions for automatically compile LaTeX documents on pushing changes.
+
+- [LaTex compile gitlab template](https://gitlab.com/jasonrwang/dissertation-tudelft-latex) compiles and push result pdf files back to the repository.
+- [Report Tex github template](https://github.com/stevengogogo/ReportTex)
+- [Pandoc LaTeX template](https://github.com/Wandmalfarbe/pandoc-latex-template)
+- Texlive: [LaTeX action](https://github.com/xu-cheng/latex-action)
+- Tectonic: [Compile Latex](https://github.com/marketplace/actions/compile-latex)
 

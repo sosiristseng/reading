@@ -14,6 +14,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 The SSH agent will ask you to enter a file in which to save the key. In my case, I named it `/home/you/.ssh/github`. And then it will ask you to enter the passphrase, I chose empty passphrase.
 
 Then you will have two SSH key files:
+
 - `/home/you/.ssh/github` is the *private key*. **Protect it at all costs.**
 - `/home/you/.ssh/github.pub` is the *public key*.
 
@@ -34,13 +35,14 @@ Host github.com
   IdentityFile ~/.ssh/github
 ```
 
-I'm not sure why the `ssh-add` method in the [📖 Github docs](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent) did not work.
+I'm not sure why the `ssh-add` method did not work as stated in the [📖 Github docs](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
 
 ## Adding the SSH key to GitHub
 
 [📖 Github docs](https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
 In the GitHub website, click your `profile` photo -> `Settings` -> `SSH and GPG keys` -> `Add SSH key` or `New SSH key`
+
 - Paste the content of the *public key*, `/home/you/.ssh/github.pub` to the key field.
 - Add a descriptive label for the new key in the "Title" field.
 - Finally, click the `Add SSH key` green button. If prompted, confirm your GitHub password.

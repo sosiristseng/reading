@@ -10,6 +10,7 @@
 <!--more-->
 
 Source
-- https://css-tricks.com/emojis-as-favicons/
-- https://bhupesh.gitbook.io/notes/webdev/turning-emojis-into-site-favicons
+
+- <https://css-tricks.com/emojis-as-favicons/>
+- <https://bhupesh.gitbook.io/notes/webdev/turning-emojis-into-site-favicons>
 
