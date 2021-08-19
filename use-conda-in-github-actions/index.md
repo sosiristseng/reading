@@ -8,6 +8,7 @@ The following example uses [setup miniconda](https://github.com/conda-incubator/
 The workflow file `.github/workflows/conda.yml` with the `jobs` section only.
 
 - enable `mamba` by specifying `mamba-version: "*"`.
+- `bash -l {0}` to activate conda environment correctly in CI.
 
 ```yml
 jobs:
