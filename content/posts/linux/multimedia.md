@@ -7,7 +7,7 @@ author: ""
 authorLink: ""
 description: ""
 
-tags: [linux, apps]
+tags: [linux]
 categories: [Linux, Applications]
 
 hiddenFromHomePage: false
@@ -23,7 +23,7 @@ math:
 lightgallery: false
 ---
 
-> Video / Audio player
+Audio/Video player
 
 <!--more-->
 

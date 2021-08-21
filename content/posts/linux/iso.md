@@ -7,7 +7,7 @@ author: ""
 authorLink: ""
 description: ""
 
-tags: [linux, apps]
+tags: [linux]
 categories: [Linux, Applications]
 
 hiddenFromHomePage: false

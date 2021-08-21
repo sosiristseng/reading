@@ -29,7 +29,8 @@ Command line tricks noted.
 
 ## Passing arguments to a command from a text file
 
-Using:
+Using
+
 - `sed`
 - `xargs`
 
@@ -81,7 +82,7 @@ After installation, just [launch](https://github.com/Xfennec/progress#what-can-i
 
 ## pv
 
-[`pv`](https://linux.die.net/man/1/pv) shows transfer speed and /or progress through a Unix pipe. `pv` works like `cat`. For example,
+[`pv`](https://linux.die.net/man/1/pv) shows transfer speed and/or progress through a Unix pipe. `pv` works like `cat`. For example,
 
 ```bash
 cat file > other_file # no output with cat

@@ -43,3 +43,6 @@ Replacement of regular command-line tools written in Rust.
 
 [ripgrep](https://github.com/BurntSushi/ripgrep) is a line-oriented search tool that recursively searches the current directory for a regex pattern.
 
+## See also
+
+- [Rewritten in Rust: Modern Alternatives of Command-Line Tools](https://zaiste.net/posts/shell-commands-rust/)
