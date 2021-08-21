@@ -30,6 +30,7 @@ kill PID
 ```
 
 **Sources**
+
 - [Bird's Linux Manual](http://linux.vbird.org/linux_basic/0440processcontrol.php#nohup)
 - [GT Wang](https://blog.gtwang.org/linux/linux-nohup-command-tutorial/)
 

@@ -3,25 +3,21 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=robots content="noodp">
-<title class=pjax-title>Development tools - Something to Live</title><meta name=Description content="Tech Notes of Wen-Wei Tseng"><meta property="og:title" content="Development tools">
-<meta property="og:description" content="
-Compilers, IDEs
-">
+<title class=pjax-title>Docker with CUDA support - Something to Live</title><meta name=Description content="Tech Notes of Wen-Wei Tseng"><meta property="og:title" content="Docker with CUDA support">
+<meta property="og:description" content="Setup docker with GPU (CUDA) containers.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://sosiristseng.github.io/development-tools/"><meta property="og:image" content="https://sosiristseng.github.io/"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://sosiristseng.github.io/docker-with-cuda-support/"><meta property="og:image" content="https://sosiristseng.github.io/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-06-18T23:48:23+08:00">
-<meta property="article:modified_time" content="2021-06-19T00:15:01+08:00">
+<meta property="article:modified_time" content="2021-08-22T00:05:39+08:00">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://sosiristseng.github.io/">
-<meta name=twitter:title content="Development tools">
-<meta name=twitter:description content="
-Compilers, IDEs
-">
+<meta name=twitter:title content="Docker with CUDA support">
+<meta name=twitter:description content="Setup docker with GPU (CUDA) containers.">
 <meta name=application-name content="Los los los">
 <meta name=apple-mobile-web-app-title content="Los los los">
-<meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=parrot.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://sosiristseng.github.io/development-tools/><link rel=prev href=https://sosiristseng.github.io/mailspring/><link rel=next href=https://sosiristseng.github.io/input-methods/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=parrot.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://sosiristseng.github.io/docker-with-cuda-support/><link rel=prev href=https://sosiristseng.github.io/mailspring/><link rel=next href=https://sosiristseng.github.io/input-methods/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Development tools","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/sosiristseng.github.io\/development-tools\/"},"genre":"posts","keywords":"linux, apps","wordcount":317,"url":"https:\/\/sosiristseng.github.io\/development-tools\/","datePublished":"2021-06-18T23:48:23+08:00","dateModified":"2021-06-19T00:15:01+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"xxxx"},"author":{"@type":"Person","name":"Wen-Wei Tseng"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Docker with CUDA support","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/sosiristseng.github.io\/docker-with-cuda-support\/"},"genre":"posts","keywords":"linux, GPU","wordcount":147,"url":"https:\/\/sosiristseng.github.io\/docker-with-cuda-support\/","datePublished":"2021-06-18T23:48:23+08:00","dateModified":"2021-08-22T00:05:39+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"xxxx"},"author":{"@type":"Person","name":"Wen-Wei Tseng"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -87,12 +83,12 @@ Cancel
 <div class=container><div class=toc id=toc-auto>
 <h2 class=toc-title>Contents</h2>
 <div class=toc-content id=toc-content-auto></div>
-</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Development tools</h1><div class=post-meta>
+</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker with CUDA support</h1><div class=post-meta>
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://sosiristseng.github.io/ title=Author target=_blank rel="noopener noreffer author" class=author>Wen-Wei Tseng</a>
 </span>&nbsp;<span class=post-category>included in </span>&nbsp;<span class=post-category>categories <a href=/categories/linux/><i class="far fa-folder fa-fw"></i>Linux</a>&nbsp;<a href=/categories/applications/><i class="far fa-folder fa-fw"></i>Applications</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-18>2021-06-18</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-06-19>2021-06-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;317 words&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-18>2021-06-18</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-08-22>2021-08-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;147 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>Contents</span>
@@ -100,59 +96,14 @@ Cancel
 </div>
 <div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
-<li><a href=#gcc-compiler-set>GCC compiler set</a></li>
-<li><a href=#docker>Docker</a></li>
-<li><a href=#gitkraken>Gitkraken</a></li>
-<li><a href=#nodejs>NodeJS</a></li>
-<li><a href=#vs-code>VS Code</a></li>
+<li><a href=#ubuntu-based>Ubuntu-based</a></li>
+<li><a href=#arch-based>Arch-based</a></li>
+<li><a href=#test-your-installation>Test your installation</a></li>
 </ul>
 </nav></div>
-</div><div class=content id=content><blockquote>
-<p>Compilers, IDEs</p>
-</blockquote>
-<h2 id=gcc-compiler-set>GCC compiler set</h2>
-<blockquote>
-<p><code>gcc</code> and friends.</p>
-</blockquote>
-<ul>
-<li><code>apt</code>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo apt install build-essential
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li><code>pacman</code>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo pacman -S base-devel
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li><code>choco</code> (Windows)
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>choco install mingw
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<h2 id=docker>Docker</h2>
-<blockquote>
-<p>with optional CUDA support</p>
-</blockquote>
-<p>Installation:</p>
-<ul>
-<li>Ubuntu: Setup deb repository
+</div><div class=content id=content><p>Setup docker with GPU (CUDA) containers.</p>
+<h2 id=ubuntu-based>Ubuntu-based</h2>
+<p>Setup the deb repository <strong>for the LTS versions</strong></p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -183,8 +134,8 @@ sudo apt update <span class=o>&amp;&amp;</span> sudo apt install nvidia-containe
 sudo systemctl restart docker
 </code></pre></td></tr></table>
 </div>
-</div></li>
-<li>Arch and derivatives: install docker and <a href=https://wiki.archlinux.org/title/Docker target=_blank rel="noopener noreffer">activate</a> it.
+</div><h2 id=arch-based>Arch-based</h2>
+<p>install docker and <a href=https://wiki.archlinux.org/title/Docker target=_blank rel="noopener noreffer">activate</a> it.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -203,9 +154,7 @@ paru -S nvidia-container-toolkit
 sudo systemctl restart docker
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-<p>Test your installation</p>
+</div><h2 id=test-your-installation>Test your installation</h2>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -218,141 +167,26 @@ sudo systemctl restart docker
 sudo docker run --gpus all nvidia/cuda:11.0-base nvidia-smi
 </code></pre></td></tr></table>
 </div>
-</div><h2 id=gitkraken>Gitkraken</h2>
-<p>Free Git GUI for Windows, Mac, Linux. But requires Login.</p>
-<p>To install:</p>
-<ul>
-<li><a href=https://www.gitkraken.com/ target=_blank rel="noopener noreffer">offical binaries</a></li>
-<li><a href=https://snapcraft.io/gitkraken target=_blank rel="noopener noreffer">snap</a>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo snap install gitkraken --classic
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li><a href=https://aur.archlinux.org/packages/gitkraken/ target=_blank rel="noopener noreffer">AUR</a>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>paru -S gitkraken
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li><a href=https://community.chocolatey.org/packages/gitkraken target=_blank rel="noopener noreffer">choco</a>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>choco install gitkraken
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<h2 id=nodejs>NodeJS</h2>
-<p><a href=https://nodejs.org/ target=_blank rel="noopener noreffer">NodeJS</a> is a JavaScript runtime built on Chrome&rsquo;s V8 JavaScript engine.</p>
-<p><strong>Installation</strong></p>
-<ul>
-<li><a href rel>Node Version Manager (nvm)</a></li>
-<li><a href=https://snapcraft.io/node target=_blank rel="noopener noreffer">snap</a>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo snap install node --classic
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li><a href=https://community.chocolatey.org/packages/nodejs target=_blank rel="noopener noreffer">choco</a>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>choco install nodejs
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<h2 id=vs-code>VS Code</h2>
-<p><a href=https://code.visualstudio.com target=_blank rel="noopener noreffer">Visual Studio Code</a> is a lightweight but powerful source code editor which runs on your desktop and is available for Linux, macOS and Windows.</p>
-<p><strong>Installation</strong></p>
-<ul>
-<li><a href=https://code.visualstudio.com target=_blank rel="noopener noreffer">Offical binaries</a></li>
-<li><a href=https://snapcraft.io/code target=_blank rel="noopener noreffer">snap</a>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo snap install code --classic
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li><a href=https://community.chocolatey.org/packages/vscode target=_blank rel="noopener noreffer">choco</a>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>choco install vscode
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>Setup deb repository (in Ubuntu)
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -fsSL https://packages.microsoft.com/keys/microsoft.asc <span class=p>|</span> sudo gpg --dearmor -o /usr/share/keyrings/packages.microsoft.gpg
-
-<span class=nb>echo</span> <span class=s2>&#34;deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main&#34;</span> <span class=p>|</span> sudo tee /etc/apt/sources.list.d/vscode.list &gt; /dev/null
-
-sudo apt update <span class=o>&amp;&amp;</span> sudo apt install code
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li><a href=https://aur.archlinux.org/packages/visual-studio-code-bin/ target=_blank rel="noopener noreffer">AUR</a>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>paru -S visual-studio-code-bin
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ul></div><div class=post-footer id=post-footer>
+</div></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>Updated on 2021-06-19&nbsp;<a class=git-hash href=https://github.com/sosiristseng/sosiristseng.github.io/commit/f0b1de1635a44a028a5329a2d0fc80180bdc95af target=_blank title="commit by Wen-Wei Tseng(sosiristseng@gmail.com) f0b1de1635a44a028a5329a2d0fc80180bdc95af: linux" rel="noopener noreferrer">
-<i class="fas fa-hashtag fa-fw"></i>f0b1de16</a></span>
+<span>Updated on 2021-08-22&nbsp;<a class=git-hash href=https://github.com/sosiristseng/sosiristseng.github.io/commit/7718f5000cbe4ee3d1d5e0508fb6731ca1cd869c target=_blank title="commit by Wen-Wei Tseng(sosiristseng@gmail.com) 7718f5000cbe4ee3d1d5e0508fb6731ca1cd869c: split" rel="noopener noreferrer">
+<i class="fas fa-hashtag fa-fw"></i>7718f500</a></span>
 </div>
 <div class=post-info-license></div>
 </div>
 <div class=post-info-line>
 <div class=post-info-md><span>
-<a class=link-to-markdown href=/development-tools/index.md target=_blank rel="noopener noreferrer">Read Markdown</a>
+<a class=link-to-markdown href=/docker-with-cuda-support/index.md target=_blank rel="noopener noreferrer">Read Markdown</a>
 </span></div>
 <div class=post-info-share>
-<span><a href=# onclick=return!1 title="Share on Twitter" data-sharer=twitter data-url=https://sosiristseng.github.io/development-tools/ data-title="Development tools" data-via=sosiristseng data-hashtags=linux,apps><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Share on Facebook" data-sharer=facebook data-url=https://sosiristseng.github.io/development-tools/ data-hashtag=linux><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Share on Linkedin" data-sharer=linkedin data-url=https://sosiristseng.github.io/development-tools/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Share on Hacker News" data-sharer=hackernews data-url=https://sosiristseng.github.io/development-tools/ data-title="Development tools"><i class="fab fa-hacker-news fa-fw"></i></a><a href=# onclick=return!1 title="Share on Reddit" data-sharer=reddit data-url=https://sosiristseng.github.io/development-tools/><i class="fab fa-reddit fa-fw"></i></a><a href=# onclick=return!1 title="Share on Line" data-sharer=line data-url=https://sosiristseng.github.io/development-tools/ data-title="Development tools"><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a></span>
+<span><a href=# onclick=return!1 title="Share on Twitter" data-sharer=twitter data-url=https://sosiristseng.github.io/docker-with-cuda-support/ data-title="Docker with CUDA support" data-via=sosiristseng data-hashtags=linux,GPU><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Share on Facebook" data-sharer=facebook data-url=https://sosiristseng.github.io/docker-with-cuda-support/ data-hashtag=linux><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Share on Linkedin" data-sharer=linkedin data-url=https://sosiristseng.github.io/docker-with-cuda-support/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Share on Hacker News" data-sharer=hackernews data-url=https://sosiristseng.github.io/docker-with-cuda-support/ data-title="Docker with CUDA support"><i class="fab fa-hacker-news fa-fw"></i></a><a href=# onclick=return!1 title="Share on Reddit" data-sharer=reddit data-url=https://sosiristseng.github.io/docker-with-cuda-support/><i class="fab fa-reddit fa-fw"></i></a><a href=# onclick=return!1 title="Share on Line" data-sharer=line data-url=https://sosiristseng.github.io/docker-with-cuda-support/ data-title="Docker with CUDA support"><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a></span>
 </div>
 </div>
 </div>
 <div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/linux/>linux</a>,&nbsp;<a href=/tags/apps/>apps</a></section>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/linux/>linux</a>,&nbsp;<a href=/tags/gpu/>GPU</a></section>
 <section>
 <span><a href=# onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span>
 </section>
