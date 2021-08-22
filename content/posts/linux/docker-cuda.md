@@ -68,4 +68,4 @@ sudo docker run --gpus all nvidia/cuda:11.0-base nvidia-smi
 ## See also
 
 - [CUDA container toolkit install guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
-- [Blog about installing nvidia-container-toolkit (Traditional Chinese)](https://grady1006.medium.com/ubuntu18-04%E5%AE%89%E8%A3%9Ddocker%E5%92%8Cnvidia-docker-%E4%BD%BF%E7%94%A8%E5%A4%96%E6%8E%A5%E9%A1%AF%E5%8D%A1-1e3c404c517d)
+- [Medium post about installing nvidia-container-toolkit (Traditional Chinese)](https://grady1006.medium.com/ubuntu18-04%E5%AE%89%E8%A3%9Ddocker%E5%92%8Cnvidia-docker-%E4%BD%BF%E7%94%A8%E5%A4%96%E6%8E%A5%E9%A1%AF%E5%8D%A1-1e3c404c517d)
