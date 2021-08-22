@@ -8,7 +8,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://sosiristseng.github.io/node-package-manager-npm-setup/"><meta property="og:image" content="https://sosiristseng.github.io/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-06-19T14:28:29+08:00">
-<meta property="article:modified_time" content="2021-08-17T21:57:24+08:00">
+<meta property="article:modified_time" content="2021-08-22T17:06:14+08:00">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://sosiristseng.github.io/">
 <meta name=twitter:title content="Node package manager (npm) Setup">
@@ -17,7 +17,7 @@
 <meta name=apple-mobile-web-app-title content="Los los los">
 <meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=parrot.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://sosiristseng.github.io/node-package-manager-npm-setup/><link rel=prev href=https://sosiristseng.github.io/hugo-setup/><link rel=next href=https://sosiristseng.github.io/emoji-favicon/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Node package manager (npm) Setup","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/sosiristseng.github.io\/node-package-manager-npm-setup\/"},"genre":"posts","keywords":"web, nodejs","wordcount":133,"url":"https:\/\/sosiristseng.github.io\/node-package-manager-npm-setup\/","datePublished":"2021-06-19T14:28:29+08:00","dateModified":"2021-08-17T21:57:24+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"xxxx"},"author":{"@type":"Person","name":"Wen-Wei Tseng"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Node package manager (npm) Setup","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/sosiristseng.github.io\/node-package-manager-npm-setup\/"},"genre":"posts","keywords":"web, nodejs","wordcount":135,"url":"https:\/\/sosiristseng.github.io\/node-package-manager-npm-setup\/","datePublished":"2021-06-19T14:28:29+08:00","dateModified":"2021-08-22T17:06:14+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"xxxx"},"author":{"@type":"Person","name":"Wen-Wei Tseng"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -87,7 +87,7 @@ Cancel
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://sosiristseng.github.io/ title=Author target=_blank rel="noopener noreffer author" class=author>Wen-Wei Tseng</a>
 </span>&nbsp;<span class=post-category>included in </span>&nbsp;<span class=post-category>category <a href=/categories/webdev/><i class="far fa-folder fa-fw"></i>WebDev</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-19>2021-06-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-08-17>2021-08-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;133 words&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-19>2021-06-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-08-22>2021-08-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;135 words&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -97,7 +97,7 @@ Cancel
 <div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
 <li><a href=#windows>Windows</a></li>
-<li><a href=#use-nvm-for-macos--linux>Use NVM for MacOS / Linux</a>
+<li><a href=#node-version-manager-for-macos--linux>Node Version manager (for MacOS / Linux)</a>
 <ul>
 <li><a href=#install-nvm>Install nvm</a></li>
 <li><a href=#install-npm>Install npm</a></li>
@@ -107,16 +107,19 @@ Cancel
 </nav></div>
 </div><div class=content id=content><p>Setup <a href=https://nodejs.org target=_blank rel="noopener noreffer">Node package manager</a> (npm).</p>
 <h2 id=windows>Windows</h2>
-<p>Just download and install <a href=https://nodejs.org/zh-tw/download/ target=_blank rel="noopener noreffer">NodeJS</a> directly or through <a href=https://nodejs.org/en/download/package-manager/ target=_blank rel="noopener noreffer">Chocolatey package manager</a>.</p>
+<ul>
+<li>Download and install <a href=https://nodejs.org/zh-tw/download/ target=_blank rel="noopener noreffer">NodeJS</a> directly</li>
+<li>Via <a href=https://nodejs.org/en/download/package-manager/ target=_blank rel="noopener noreffer">Chocolatey package manager</a>.</li>
+</ul>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>choco</span> <span class=n>install</span> <span class=n>nodejs</span>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>choco install nodejs
 </code></pre></td></tr></table>
 </div>
-</div><h2 id=use-nvm-for-macos--linux>Use NVM for MacOS / Linux</h2>
+</div><h2 id=node-version-manager-for-macos--linux>Node Version manager (for MacOS / Linux)</h2>
 <p>Why? Because there are some benefits using <a href=https://github.com/nvm-sh/nvm target=_blank rel="noopener noreffer">Node Version manager (NVM)</a>:</p>
 <ul>
 <li>Avoid conflicts between system <code>npm</code> and what your project needs.</li>
@@ -131,7 +134,14 @@ Cancel
 <pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh <span class=p>|</span> bash
 </code></pre></td></tr></table>
 </div>
-</div><p>✒️ For zsh users, you could install the <a href=https://github.com/lukechilds/zsh-nvm target=_blank rel="noopener noreffer">zsh-nvm module</a>.</p>
+</div><div class="details admonition tip open">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-lightbulb fa-fw"></i>For zsh users<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content>For zsh users, you could install the <a href=https://github.com/lukechilds/zsh-nvm target=_blank rel="noopener noreffer">zsh-nvm module</a>.</div>
+</div>
+</div>
 <p>Check your installation afterwards:</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -166,15 +176,15 @@ Cancel
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>npm install -g hexo-cli docsify-cli
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>npm install -g hexo-cli docsify-cli browser-sync
 </code></pre></td></tr></table>
 </div>
 </div></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>Updated on 2021-08-17&nbsp;<a class=git-hash href=https://github.com/sosiristseng/sosiristseng.github.io/commit/2eecf9803b5161d58a15efae4ef778c681b5bd76 target=_blank title="commit by Wen-Wei Tseng(sosiristseng@gmail.com) 2eecf9803b5161d58a15efae4ef778c681b5bd76: small fix" rel="noopener noreferrer">
-<i class="fas fa-hashtag fa-fw"></i>2eecf980</a></span>
+<span>Updated on 2021-08-22&nbsp;<a class=git-hash href=https://github.com/sosiristseng/sosiristseng.github.io/commit/9d99787020cd70fa657769727752bfa3a20d1fd2 target=_blank title="commit by Wen-Wei Tseng(sosiristseng@gmail.com) 9d99787020cd70fa657769727752bfa3a20d1fd2: small fix" rel="noopener noreferrer">
+<i class="fas fa-hashtag fa-fw"></i>9d997870</a></span>
 </div>
 <div class=post-info-license></div>
 </div>

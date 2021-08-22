@@ -7,13 +7,14 @@ Setup [Node package manager](https://nodejs.org) (npm).
 
 ## Windows
 
-Just download and install [NodeJS](https://nodejs.org/zh-tw/download/) directly or through [Chocolatey package manager](https://nodejs.org/en/download/package-manager/).
+- Download and install [NodeJS](https://nodejs.org/zh-tw/download/) directly
+- Via [Chocolatey package manager](https://nodejs.org/en/download/package-manager/).
 
-```powershell
+```bash
 choco install nodejs
 ```
 
-## Use NVM for MacOS / Linux
+## Node Version manager (for MacOS / Linux)
 
 Why? Because there are some benefits using [Node Version manager (NVM)](https://github.com/nvm-sh/nvm):
 
@@ -26,7 +27,10 @@ Why? Because there are some benefits using [Node Version manager (NVM)](https://
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
 ```
 
-✒️ For zsh users, you could install the [zsh-nvm module](https://github.com/lukechilds/zsh-nvm).
+{{< admonition tip "For zsh users" true >}}
+For zsh users, you could install the [zsh-nvm module](https://github.com/lukechilds/zsh-nvm).
+{{< /admonition >}}
+
 
 Check your installation afterwards:
 
@@ -51,6 +55,6 @@ node -v
 And then you can install packages globally without `sudo` command. For example,
 
 ```bash
-npm install -g hexo-cli docsify-cli
+npm install -g hexo-cli docsify-cli browser-sync
 ```
 

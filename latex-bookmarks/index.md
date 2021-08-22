@@ -1,7 +1,9 @@
 # Latex bookmarks
 
 
-LaTeX is a high-quality typesetting system for technical and scientific documentation. By [The LaTeX project](https://www.latex-project.org/). See also [😎 Awesome LaTeX](https://github.com/egeerardyn/awesome-LaTeX).
+LaTeX is a high-quality typesetting system for technical and scientific documentation. By [The LaTeX project](https://www.latex-project.org/).
+
+See also [😎 Awesome LaTeX](https://github.com/egeerardyn/awesome-LaTeX).
 
 <!--more-->
 

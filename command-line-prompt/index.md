@@ -55,7 +55,8 @@ export NVM_LAZY_LOAD=true
 
 [🚀 Starship](https://starship.rs/) is an enhancement for command prompt in a multitude of shells, powered by Rust. Available for bash, zsh, fish, powershell, etc.
 
-Install via:
+### Instalation
+
 - standalone binary
   ```bash
   sudo -v && curl -fsSL https://starship.rs/install.sh | bash
@@ -64,6 +65,8 @@ Install via:
   ```bash
   paru -S starship-bin   # or "starship" if you want to compile the code
   ```
+
+### RC files setup
 
 Append this line in your `*.rc` files of your shell and restart your shell to load starship.
 

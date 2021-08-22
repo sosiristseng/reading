@@ -1,24 +1,44 @@
 # Hugo Setup
 
 
-How to set up a Hugo blog site
+How to set up a Hugo blog site.
 
 <!--more-->
 
-## Using my template
+## Simple way: Using my template
 
-Copy [My template site](https://github.com/sosiristseng/template-hugo-doit) for a quick start. It includes
+Copy [My template site](https://github.com/sosiristseng/template-hugo-doit) for a quick start.
+
 - Beautiful [DoIt](https://github.com/HEIGE-PCloud/DoIt) theme installed as a Git submodule.
-- Some useful shortcodes were added from color your world theme.
-- CI/CD routine for both GitHub actions and GitLab CICD. The website will be built and deploy automatically upon pushing the changes.
+- DevOps routines for both GitHub actions and GitLab CI/CD.
+  - It automatically fetches update s from the DoIt theme by dependabot (For Github only)
+  - The website will be built and deploy automatically upon pushing the changes.
 
-?> After copying, you need to change `baseURL` in `config.toml`.
+{{< admonition type=note open=true >}}
+
+You need to modify the following files to set base URL.
+
+`config.toml`
 
 ```toml
-baseURL = "www.example.com/" # With the trailing slash
+baseURL = "www.yourexample.com/" # With the trailing slash
 ```
 
-!> If you prefer a do-it-yourself way to set up your Hugo blog, please follow the [theme documentation](https://codeit.suntprogramator.dev/theme-documentation-basics/) instead.
+`.gitlab-ci.yml`
+
+```yml
+variables:
+    HUGO_BASE_URL: 'www.yourexample.com/'
+```
+
+{{< /admonition >}}
+
+{{< admonition type=example title="Do-it-yourself" open=true >}}
+
+If you prefer a do-it-yourself way to set up your Hugo blog, please follow the [theme documentation](https://codeit.suntprogramator.dev/theme-documentation-basics/) instead.
+
+{{< /admonition >}}
+
 
 ## Hosting on GitHub pages
 
@@ -26,8 +46,7 @@ Click the `Use the template` button at [my template repository](https://github.c
 
 The website will be deployed on the `gh-pages` branch. You need to activate GitHub pages in the repository settings, pointing to root folder in the `gh-pages` branch.
 
-An example CI file for publishing on GitHub pages `.github/workflows/gh-pages.yml`
-
+The example workflow file `.github/workflows/gh-pages.yml`
 
 ```yml
 name: github pages
@@ -64,7 +83,7 @@ jobs:
 
 Click [import project](https://gitlab.com/projects/new#import_project) and select `Repo by URL`, paste the git url from [my template](https://github.com/sosiristseng/template-hugo-codeit).
 
-An example GitLab CI/CD file `.gitlab-ci.yml`. You should modify the environment variable `HUGO_BASE_URL` to your domain.
+The example workflow file `.gitlab-ci.yml`.
 
 
 ```yaml

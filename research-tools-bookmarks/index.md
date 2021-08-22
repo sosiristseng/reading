@@ -1,7 +1,7 @@
 # Research Tools Bookmarks
 
 
-[😎 awesome research](https://github.com/emptymalei/awesome-research)
+See also [😎 awesome research](https://github.com/emptymalei/awesome-research)
 
 <!--more-->
 
@@ -54,7 +54,7 @@
 - [BiGG Models](http://bigg.ucsd.edu/)
 - [Bionumbers](https://bionumbers.hms.harvard.edu/search.aspx), biological numbers from various sources
 - [BRENDA](https://www.brenda-enzymes.org/)
-- [Physical lens of the cell] 503 for now
+- [Physical lens of the cell](https://physicallensonthecell.org/)
 - [Human cell atlas](https://data.humancellatlas.org/)
 
 ### Pharmacology database

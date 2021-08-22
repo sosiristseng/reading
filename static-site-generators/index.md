@@ -45,7 +45,7 @@ See also [awesome static site generators](https://github.com/myles/awesome-stati
 - [StaticWebPages.jl](https://github.com/Azzaare/StaticWebPages.jl) : Create academics and personal CV web-pages.
 
 
-## SSGs I use so far
+## SSGs I used so far
 
 ### Hugo
 
@@ -66,11 +66,14 @@ See also [awesome static site generators](https://github.com/myles/awesome-stati
 
 **Themes**
 
-- [codeIT](https://github.com/sunt-programator/CodeIT) : used in this blog.
+- [DoIT](https://hugodoit.pages.dev/) : used in this blog.
+- [book](https://github.com/alex-shpak/hugo-book)
 - [clarity](https://github.com/chipzoller/hugo-clarity)
-- [color your world](https://gitlab.com/rmaguiar/hugo-theme-color-your-world)
 - [meme](https://github.com/reuixiy/hugo-theme-meme)
-- [zzo](https://github.com/zzossig/hugo-theme-zzo)
+
+**See also**
+
+[My blog post]({{< relref "hugo-setup.md" >}}) about Hugo site setup.
 
 ### Hexo
 
@@ -82,7 +85,7 @@ See also [awesome static site generators](https://github.com/myles/awesome-stati
 
 **Cons 👎**
 
-- Hundreds of npm dependencies. If you are familiar with npm packages it might not be a problem.
+- Hundreds of nodeJS dependencies. If you are familiar with npm package management it might not be a problem.
 - For LaTeX math typesetting, you need to change the renderer to either the `pandoc` one or the `markdown-it` one.
 - Less intuitive [asset management](https://hexo.io/docs/asset-folders.html).
 
@@ -99,12 +102,12 @@ See also [awesome static site generators](https://github.com/myles/awesome-stati
 **Pros 👍**
 
 - Minimal dependency: just one `index.html` and some markdown files.
-- Fast. It skips the building step and renders Markdown file on-the-fly.
+- It skips the building step and renders Markdown file on-the-fly.
 - Handy extensions on [awesome docsify](https://docsify.js.org/#/awesome).
 
 **Cons 👎**
 
-- No support for tags, categorie, and footnotes extension.
+- No support for tags, categories, and footnotes extensions.
 - The KaTeX extension does not support `mhchem` extension.
 
 ## Others
