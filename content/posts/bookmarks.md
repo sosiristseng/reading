@@ -67,7 +67,14 @@ My portable bookmarks.
 
 ## Julia
 
-[Julia bookmarks]({{< ref "julia/bookmarks.md" >}})
+- [GensJulia][], my personal Julia list largely based on [Julia.jl][].
+- [Julia.jl][] : Curated decibans of Julia programming language.
+- [JuliaNotes.jl](https://github.com/m3g/JuliaNotes.jl) : a collection of examples and explanations about Julia.
+- My [Julia notebooks](https://github.com/sosiristseng/JuliaExamples)
+
+[Julia.jl]: https://github.com/svaksha/Julia.jl
+[GensJulia]: https://sosiristseng.github.io/GensJulia/
+
 
 ## Research Tools
 
