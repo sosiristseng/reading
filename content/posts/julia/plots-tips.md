@@ -7,7 +7,7 @@ author: ""
 authorLink: ""
 description: ""
 
-tags: [julia, visualization]
+tags: [julia, visualization, latex]
 categories: [Julia]
 
 hiddenFromHomePage: false
@@ -72,6 +72,15 @@ p3 = plot(...)
 plot(p1, p2, p3, layout = l)
 ```
 
+Or use numbering
+```julia
+plot(layout=(2,2))
+plot!(randn(50), sp=1)
+plot!(randn(50), sp=2)
+plot!(randn(50), sp=3)
+plot!(randn(50), sp=4)
+```
+
 See also [layouts](http://docs.juliaplots.org/latest/layouts/#layouts) for more options.
 
 ## Supported styles
@@ -84,7 +93,9 @@ From [this tutorial](https://www.math.purdue.edu/~allen450/Plotting-Tutorial.htm
 @show Plots.supported_markers();
 ```
 
-## Plotting Images
+See also [plot attributes](http://docs.juliaplots.org/latest/attributes/).
+
+## Render Images
 
 ```julia
 # usingPkg; Pkg.add("Images")
@@ -92,3 +103,17 @@ using Images
 img1 = load("dog.jpg")
 plot(img1)
 ```
+
+## LaTeX texts
+
+```julia
+using LaTeXStrings
+
+str = L"\textrm{Count}"
+```
+
+## Output as PDF files
+
+- PDF uses vector graphic format and conserves details.
+- Set figure size size=(750,750) to determine the relative fonts sizes.
+- One can convert PDF files to bitmap images later using `pdftoppm` or `imagemagick`
